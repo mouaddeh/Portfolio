@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio - Projet simple</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Mon Portfolio</h1>
+    <!-- menu principal avec menu déroulant -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">Projets ▾</button>
+          <ul class="dropdown-content">
+            <li><a href="#projet1">Projet 1</a></li>
+            <li><a href="#projet2">Projet 2</a></li>
+            <li><a href="#projet3">Projet 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sommaire simple -->
+  <section id="sommaire" class="sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </section>
+
+  <main>
+    <section id="accueil">
+      <h2>Accueil</h2>
+      <p>Bienvenue sur mon portfolio. Ici je présente mes projets et mes compétences.</p>
+    </section>
+
+    <section id="projets">
+      <h2>Projets</h2>
+
+      <article id="projet1">
+        <h3>Projet 1 — Deller /34</h3>
+        <p>Description courte du projet 1.</p>
+      </article>
+
+      <article id="projet2">
+        <h3>Projet 2 — Exemple</h3>
+        <p>Description courte du projet 2.</p>
+      </article>
+
+      <article id="projet3">
+        <h3>Projet 3 — Exemple</h3>
+        <p>Description courte du projet 3.</p>
+      </article>
+    </section>
+
+    <section id="a-propos">
+      <h2>À propos</h2>
+      <p>Quelques mots sur toi, ton rôle (ex : beatmaker), et ce que tu recherches.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email : <a href="mailto:ton.email@example.com">ton.email@example.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="annee"></span> Mon Portfolio</p>
+  </footer>
+
+  <script>
+    // Petite touche JS pour l'année dynamique
+    document.getElementById('annee').textContent = new Date().getFullYear();
+    // fermer dropdown si clic en dehors
+    document.addEventListener('click', function(e){
+      const drop = document.querySelector('.dropdown');
+      if (!drop) return;
+      if (!drop.contains(e.target)) drop.classList.remove('open');
+    });
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        this.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
